@@ -1,0 +1,57 @@
+body {
+    --main-color: black;
+    color: var(--main-color);
+    font-family: sans-serif;
+}
+h1, h2, h3 {
+	text-align: center;
+}
+table {
+    width: 100%;
+    --main-table-bg: rgba(54,9,89,0.1);
+    background-color: var(--main-table-bg);
+    margin: 0 auto;
+    padding: 0.5%;
+    border-style: solid;
+}
+th {
+    border-style: solid;
+    line-height: 2em;
+	height: 2em;
+}
+tr {
+    background-color: var(--main-table-bg);
+    text-align: center;
+    padding: 3%;
+
+}
+tr td:first-child, tr th:first-child {
+    padding-right: 1%;
+    font-weight: bold;
+    text-align: right;
+}
+tr:hover {
+    background-color: rgba(146,92,181,0.6);
+}
+td {
+    padding: 2%, 4%, 4%, 2%;
+    border-style: solid;
+    line-height: 2em;
+	height: 2em;
+}
+a {
+    font-weight: bold;
+    color: var(--main-color);
+}
+/* made the hover values obnoxious so they'd stand out more when I'm using this form with tired eyes. */
+a:hover {
+    color: rgba(34,0,70,0.9);
+    background-color: rgba(34,0,70,0.1);
+    text-decoration: underline dotted;
+}
+
+@media screen and (min-width: 700px) {
+    table {
+        width: 90%;
+    }
+}
