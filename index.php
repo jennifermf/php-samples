@@ -10,8 +10,12 @@ session_start();
 <title>Jen's Job Search</title>
 </head>
 <body>
+    <div class="top">
     <h1>Jen's Job Search Database</h1>
     <h2>starring PHP, SQL, JavaScript, jQuery, HTML, CSS</h2>
+    <div class="count"></div>
+    <h3><a href="add.php">Add a new job application.</a></h3>
+    </div>
 <?php
 if ( isset($_SESSION['error']) ) {
     echo '<p style="color:red">'.$_SESSION['error']."</p>\n";
@@ -22,15 +26,6 @@ if ( isset($_SESSION['success']) ) {
     unset($_SESSION['success']);
 }
 ?>
-<h3><a href="add.php">Add a new job application.</a></h3>
-<script type="text/javascript" src="jquery.min.js"></script>
-
-<script type="text/javascript">
-// Simple htmlentities leveraging JQuery
-function htmlentities(str) {
-   return $('<div/>').text(str).html();
-}
-</script>
 <table>
     <tr>
         <th>Title</th>
@@ -38,28 +33,38 @@ function htmlentities(str) {
         <th>Submitted</th>
         <th>Response</th>
     </tr>
-    <tbody id="mytab">
+    <tbody id="mytable">
     </tbody>
 </table>
+</body>
 <script type="text/javascript">
+// Simple htmlentities leveraging JQuery
+function htmlentities(str) {
+   return $('<div>').text(str).html();
+}
 // Do this *after* the table tag is rendered
 $.getJSON('getjson.php', function(rows) {
-    $("#mytab").empty();
+    $("#mytable").empty();
     console.log(rows);
     found = false;
+    var waiting = 0;
     for (var i = 0; i < rows.length; i++) {
         row = rows[i];
         found = true;
         window.console && console.log('Row: '+i+' '+row.title);
-        $("#mytab").append('<tr><td><a href="view.php?gig_id='+row.gig_id+'">'
+        $("#mytable").append('<tr><td><a href="view.php?gig_id='+row.gig_id+'">'
             + htmlentities(row.title)+'<br/><a href="edit.php?gig_id='+htmlentities(row.gig_id)+'">Edit</a> | <a href="delete.php?gig_id='+htmlentities(row.gig_id)+'">Delete</a></td><td>'
             + htmlentities(row.company)+'</td><td>'
             + htmlentities(row.submitted)+'</td><td class="' + row.gig_id + '">'
             + htmlentities(row.response)+'</td></tr>');
+        if (row.response == '0000-00-00') {
+            ++waiting;
+        }
     }
     /* TODO: filter based on response date */
     if ( ! found ) {
-        $("#mytab").append("<tr><td>No entries found</td></tr>\n");
+        $("#mytable").append("<tr><td>No entries found</td></tr>\n");
     }
+    $(".count").append('<h3>' + (rows.length) + ' submissions to date. Waiting for ' + waiting + ' responses.</h3>');
 });
 </script>

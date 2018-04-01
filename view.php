@@ -19,7 +19,7 @@ $info = htmlentities($row['info']);
 </head>
 <body>
 <h1>Job Application</h1>
-<table>
+<table class="view">
 <tr><td>Title:</td><td><?= $title ?></td></tr>
 <tr><td>Company:</td><td><?= $comp ?></td></tr>
 <tr><td>Submitted:</td><td><?= $sub ?></td></tr>

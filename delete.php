@@ -18,7 +18,7 @@ if ( ! isset($_GET['gig_id']) ) {
   return;
 }
 
-$stmt = $pdo->prepare("SELECT title, gig_id FROM Gigs where gig_id = :gig_id");
+$stmt = $pdo->prepare("SELECT title, company, gig_id FROM Gigs where gig_id = :gig_id");
 $stmt->execute(array(":gig_id" => $_GET['gig_id']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 if ( $row === false ) {
@@ -34,12 +34,14 @@ if ( $row === false ) {
 <?php include("head.html"); ?>
 <meta charset = "UTF-8">
 </head>
-<body>
-<p>Confirm delete: <?= htmlentities($row['title']) ?></p>
+<body class="delete">
+<p>Confirm delete:</p>
+<p class="fancytxt"><?= htmlentities($row['title']) ?> @ <?= htmlentities($row['company']) ?></p>
 
 <form method="post">
 <input type="hidden" name="gig_id" value="<?= $row['gig_id'] ?>">
-<input type="submit" value="Delete" name="delete">
+<input class = "delete" type="submit" value="Delete" name="delete">
+or
 <a href="index.php">Cancel</a>
 </form>
 </body>

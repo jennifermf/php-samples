@@ -3,9 +3,7 @@ require_once "pdo.php";
 session_start();
 
 if (isset($_POST['title']) && isset($_POST['company']) ) {
-
     // Data validation
-
     if ( strlen($_POST['title']) < 1 || strlen($_POST['company']) < 1) {
         $_SESSION['error'] = 'Missing data';
         header("Location: add.php");
