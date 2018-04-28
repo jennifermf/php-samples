@@ -44,7 +44,12 @@ $gig_id = $_POST['gig_id'];
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php include("head.html"); ?>
+<meta charset = "UTF-8">
+<script src = "jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="calendar.css">
+<script src="scripts.js"></script>
 <meta charset = "UTF-8">
 </head>
 <body>
@@ -55,9 +60,9 @@ $gig_id = $_POST['gig_id'];
 <p>Company:
 <input type="text" name="company" value="<?= $comp ?>"></p>
 <p>Submitted (YYYY-MM-DD):
-<input type="text" name="submitted" value="<?= $sub ?>"></p>
+<input type="text" name="submitted" class="datepicker" value="<?= $sub ?>"></p>
 <p>Response (YYYY-MM-DD):
-<input type="text" name="response" value="<?= $resp ?>"></p>
+<input type="text" name="response" class="datepicker" value="<?= $resp ?>"></p>
 <p>Info:</p>
 <textarea rows="10" cols="50" name="info"><?= $info ?></textarea>
 <input type="hidden" name="gig_id" value="<?= $gig_id ?>">

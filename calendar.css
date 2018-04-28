@@ -1,0 +1,88 @@
+body {
+    --main-color: black;
+    color: var(--main-color);
+    font-family: sans-serif;
+    padding: 3%;
+}
+h1, h2, h3 {
+	text-align: center;
+}
+p {
+    font-weight: bold;
+    padding-top: 1%;
+    color: var(--main-color);
+}
+
+a {
+    font-weight: bold;
+    color: var(--main-color);
+    padding: 2%;
+    background-color: rgba(0,0,0,0.2);
+}
+/* made the hover values obnoxious so they'd stand out more when I'm using this form with tired eyes. */
+a:hover {
+    background-color: rgba(0,0,0,0.4);
+    text-transform: uppercase;
+}
+.delete {
+    text-align: center;
+    font-size: 2em;
+}
+input.delete {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+.fancytxt {
+    font-weight: bold;
+    text-decoration: wavy underline;
+}
+input {
+    font-size: 1em;
+}
+
+.ui-datepicker {
+    background-color: white;
+    margin: 1%;
+    padding: 1%;
+    font-size: 1.5em;
+}
+.ui-datepicker:hover {
+    border: solid 0.5px;
+    box-shadow: -10px -10px grey;
+}
+.ui-datepicker a {
+    text-decoration: none;
+}
+.ui-datepicker a:hover {
+    background-color: black;
+    color: white;
+}
+.ui-datepicker-today {
+    border: solid purple;
+}
+.ui-datepicker-title {
+    text-align: center;
+    font-size: 2em;
+    color: purple;
+    text-decoration: wavy underline;
+    padding: 3%;
+}
+.ui-datepicker-prev {
+    text-align: left;
+    padding-left: 3%;
+}
+.ui-datepicker-prev:before {
+    content: "◀︎";
+}
+.ui-datepicker-next:after {
+    content: "▶︎";
+}
+.ui-datepicker-next {
+    margin-left: 30%;
+}
+.ui-datepicker-calendar {
+    padding: 3%;
+    line-height: 1.5em;
+}

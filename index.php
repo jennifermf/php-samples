@@ -5,7 +5,9 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php include("head.html"); ?>
+<meta charset = "UTF-8">
+<link rel = "stylesheet" href = "stylesheet.css">
+<script src = "jquery.min.js"></script>
 <meta charset = "UTF-8">
 <title>Jen's Job Search</title>
 </head>

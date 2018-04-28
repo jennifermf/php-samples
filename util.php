@@ -11,3 +11,13 @@ function loadProfile($pdo, $gig_id) {
     }
     return $row;
 }
+
+function autocomplete($searchTerm) {
+    // this needs work
+    $query = $db->query("SELECT * FROM Gigs WHERE name LIKE '%".$searchTerm."%' ORDER BY name ASC");
+    while ($row = $query->fetch_assoc()) {
+        $data[] = $row['name'];
+    }
+    //return json data
+    echo json_encode($data)
+}
